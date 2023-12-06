@@ -87,7 +87,7 @@ data. In practice, GAMG starts with the mesh specified by the user and coarsens/
 
 Kinematic pressure and velocity boundary conditions are utilized for running the simulations in the fluid domain. Two types of boundary conditions are used for running the simulations in this case, which are:
 
-1. **Neumann Boundary condition:** $$\frac(\del)(\del n)\phi$$ = 0\
+1. **Neumann Boundary condition:** $$\frac(\partial)(\partial{n})\phi$$ = 0\
    where $\phi$ is kinematic pressure/velocity in this case.
 2. **Dirichlet Boundary condition:** $$\phi_{f} = \phi_{ref}$$\
    where $\phi_{ref}$ is the value assigned to kinematic pressure/velocity at the boundary inlet/outlet.
