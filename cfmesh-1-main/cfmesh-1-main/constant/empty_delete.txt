@@ -1,3 +1,0 @@
-I only added this file because Github wouldn't allow me to upload an empty constants folder
-
-please delete this file when you clone the repository 
