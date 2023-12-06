@@ -87,7 +87,7 @@ data. In practice, GAMG starts with the mesh specified by the user and coarsens/
 
 Kinematic pressure and velocity boundary conditions are utilized for running the simulations in the fluid domain. Two types of boundary conditions are used for running the simulations in this case, which are:
 
-1. **Neumann Boundary condition:** $$\frac(\partial)(\partial{n})\phi$$ = 0\
+1. **Neumann Boundary condition:** $$\frac(\partial{\phi})(\partial{n})=0$$\
    where $\phi$ is kinematic pressure/velocity in this case.
 2. **Dirichlet Boundary condition:** $$\phi_{f} = \phi_{ref}$$\
    where $\phi_{ref}$ is the value assigned to kinematic pressure/velocity at the boundary inlet/outlet.
@@ -95,5 +95,40 @@ Kinematic pressure and velocity boundary conditions are utilized for running the
 Wherever velocity boundary condition is “Dirichlet”, pressure boundary condition should be “Neumann” and vice versa, which is utilized in this case.
 
 For the inlet, a zeroGradient boundary condition is used for the kinematic pressure which applies a zero-gradient condition from the patch internal field onto the patch faces and a known velocity of $1 m/s$ is used for the velocity. In the case of the outlet boundary conditions, the fixedValue=0 boundary condition is used for kinematic pressure in which a fixed value constraint (here $0 m^{2}/s^{2}$) is applied to the outlet, and the zeroGradient boundary condition is applied for velocity.
-   
 
+## Simulation Results
+
+Simulations are run from time = 0 seconds to time = 0.5 seconds, as by 0.5 secs steady state is achieved in the flow through the Tesla valve and computational effort can be minimized.\
+The following are the distributions of kinematic pressure and velocity under 2 cases of flow from left to right and right to left:
+
+### Case 1: Flow from Right to Left
+
+a. Kinematic Pressure
+
+|<img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/kinempress1.png" width="500"/> |  <img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/kinempress2.png" width="500"/>  |
+|:------:|:------:|
+|t = 0 seconds|t = 5 seconds|
+
+b. Velocity
+
+|<img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/vel1.png" width="500"/> |  <img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/vel2.png" width="500"/>  |
+|:------:|:------:|
+|t = 0 seconds|t = 5 seconds|
+
+### Case 2: Flow from Left to Right
+
+a. Kinematic Pressure
+
+|<img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/kinempress3.png" width="500"/> |  <img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/kinempress4.png" width="500"/>  |
+|:------:|:------:|
+|t = 0 seconds|t = 5 seconds|
+
+b. Velocity
+
+|<img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/vel3.png" width="500"/> |  <img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/vel4.png" width="500"/>  |
+|:------:|:------:|
+|t = 0 seconds|t = 5 seconds|
+
+### Inference:
+
+In Case 1 (flow from right to left), we can see an unrestricted flow with adequate velocity for the flow to occur. However, it is not the situation in Case 2 (flow from left to right). In Case 2, the fluid, by the time it attains a steady-state has a very minimal velocity for the flow to occur and higher kinematic pressure is observed compared to Case 1 results due to higher restrictions caused by the fluid from the branches meeting with the fluid through the central portion of the valve. Case 1 has a higher velocity than Case 2 due to minimal restrictions caused to the fluid flow and Case 2 has higher kinematic pressure than Case 1 throughout the valve due to higher restrictions to the fluid flow. Thus, it implies that flow is unrestricted from right to left and is restricted from left to right, thereby allowing a unidirectional flow in the Tesla valve without the usage of any moving parts, which is the biggest advantage of using a Tesla valve.
