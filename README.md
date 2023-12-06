@@ -21,4 +21,13 @@ We shall assume a viscous, incompressible fluid flow for which the Navier-Stokes
 <div align="center">
  <img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/momentum%20equation.png" width="500"/> 
 </div>
-where $\rho$ is the density of the fluid, $\vec{V}$ is the fluid velocity vector, $p$ is the fluid pressure, $g$ is the acceleration due to gravity, is the dynamic viscosity of the fluid and $\Del$ is the Laplacian operator.
+where $\rho$ is the density of the fluid, $\vec{V}$ is the fluid velocity vector, $p$ is the fluid pressure, $\vec{g}$ is the acceleration due to gravity, $\mu$ is the dynamic viscosity of the fluid and $\nabla^{2}$ is the Laplacian operator.
+
+In the simulations, Navier-Stokes equations are solved using the PISO algorithm, an algorithm that consists of iterative procedures for coupling equations for momentum and mass conservation. PISO algorithm solves a pressure equation, to enforce mass conservation, with an explicit correction to velocity to satisfy momentum conservation. In the pisoFoam solver, kinematic pressure $(m^{2}/s^{2})$ and velocity $(m/s)$ are considered to be mandatory input requirements.
+
+Large Eddy Simulation (LES) turbulence modeling is utilized for the simulations. In LES, the mesh is required to resolve the viscous sub-layer and requires high order schemes to adequately resolve the high-energy
+containing eddies. The turbulence kinetic energy is given by:
+<div align="center">
+ <img src="https://github.com/Karthik-Rajgopal/Tesla-Valve-CFD-Simulations/blob/main/Images/turbulentKE.png" width="500"/> 
+</div>
+
