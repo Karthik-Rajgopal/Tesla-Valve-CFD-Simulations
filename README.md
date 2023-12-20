@@ -87,18 +87,18 @@ data. In practice, GAMG starts with the mesh specified by the user and coarsens/
 
 Kinematic pressure and velocity boundary conditions are utilized for running the simulations in the fluid domain. Two types of boundary conditions are used for running the simulations in this case, which are:
 
-1. **Neumann Boundary condition:** $$\frac(\partial{\phi})(\partial{n})=0$$\
+1. **Neumann Boundary condition:** $$\frac{\partial{\phi}}{\partial{n}}=0$$\
    where $\phi$ is kinematic pressure/velocity in this case.
 2. **Dirichlet Boundary condition:** $$\phi_{f} = \phi_{ref}$$\
    where $\phi_{ref}$ is the value assigned to kinematic pressure/velocity at the boundary inlet/outlet.
 
-Wherever velocity boundary condition is “Dirichlet”, pressure boundary condition should be “Neumann” and vice versa, which is utilized in this case.
+Wherever the velocity boundary condition is “Dirichlet”, pressure boundary condition should be “Neumann” and vice versa, which is utilized in this case.
 
-For the inlet, a zeroGradient boundary condition is used for the kinematic pressure which applies a zero-gradient condition from the patch internal field onto the patch faces and a known velocity of $1 m/s$ is used for the velocity. In the case of the outlet boundary conditions, the fixedValue=0 boundary condition is used for kinematic pressure in which a fixed value constraint (here $0 m^{2}/s^{2}$) is applied to the outlet, and the zeroGradient boundary condition is applied for velocity.
+For the inlet, a zeroGradient boundary condition is used for the kinematic pressure which applies a zero-gradient condition from the patch internal field onto the patch faces, and a known velocity of $1 m/s$ is used for the velocity. In the case of the outlet boundary conditions, the fixedValue=0 boundary condition is used for kinematic pressure in which a fixed value constraint (here $0 m^{2}/s^{2}$) is applied to the outlet, and the zeroGradient boundary condition is applied for velocity.
 
 ## Simulation Results
 
-Simulations are run from time = 0 seconds to time = 0.5 seconds, as by 0.5 secs steady state is achieved in the flow through the Tesla valve and computational effort can be minimized.\
+Simulations are run from time = 0 seconds to time = 0.5 seconds, as by 0.5 seconds steady state is achieved in the flow through the Tesla valve, and computational effort can be minimized.\
 The following are the distributions of kinematic pressure and velocity under 2 cases of flow from left to right and right to left:
 
 ### Case 1: Flow from Right to Left
